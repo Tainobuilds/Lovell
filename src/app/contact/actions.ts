@@ -44,8 +44,10 @@ export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promis
           method: "POST",
           headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
           body: JSON.stringify({
-            from: process.env.CONTACT_FROM_EMAIL ?? "Lovell Media <website@lovellmedia.com>",
-            to: (process.env.CONTACT_TO_EMAIL ?? site.email).split(",").map((s) => s.trim()),
+            // Resend's shared test sender works without verifying a domain, but only
+            // delivers to the email address the Resend account was created with.
+            from: process.env.CONTACT_FROM_EMAIL || "Lovell Media Website <onboarding@resend.dev>",
+            to: (process.env.CONTACT_TO_EMAIL || site.enquiriesTo).split(",").map((s) => s.trim()),
             reply_to: values.email,
             subject: `New enquiry: ${serviceName} (${values.name})`,
             text: [

@@ -50,6 +50,15 @@ form tells visitors to email directly, so nothing is silently dropped. Includes 
 
 See `docs/ROADMAP.md` (what is left) and `docs/CONTENT-INTAKE.md` (what to collect from Lovell Media).
 
+### Turning on email delivery (Resend, free tier)
+1. Sign up at https://resend.com **using contact@latoyalovell.com** (the test sender only delivers to the account's own email).
+2. In Resend go to **API Keys**, create a key and copy it.
+3. In Vercel go to **Project → Settings → Environment Variables**, add `RESEND_API_KEY` = the key, then redeploy.
+4. Submit the contact form on the live site and check the inbox (and spam folder).
+
+Enquiries arrive with the visitor's address as *reply-to*, so pressing Reply answers them directly.
+To send from a Lovell Media address later, verify the domain in Resend and set `CONTACT_FROM_EMAIL`.
+
 ## Design system
 
 See `DESIGN.md`.

@@ -9,8 +9,11 @@ export const site = {
     "Lovell Media is an independent production company bringing ideas to life across out-of-home, concerts, podcasts, events and branded content.",
   // TODO: set to the production domain once confirmed (also used for SEO/sitemap).
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lovellmedia.com",
-  // TODO: confirm the public enquiries inbox.
-  email: "hello@lovellmedia.com",
+  // Public contact address shown on the site. Using the founder's inbox until a
+  // Lovell Media address (e.g. hello@lovellmedia.com) exists. TODO: switch over.
+  email: "contact@latoyalovell.com",
+  /** Where contact-form enquiries are delivered (override with CONTACT_TO_EMAIL). */
+  enquiriesTo: "contact@latoyalovell.com",
   // TODO: confirm city / base for the studio.
   location: "",
   founder: {

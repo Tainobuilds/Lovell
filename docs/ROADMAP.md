@@ -29,8 +29,10 @@ See `docs/CONTENT-INTAKE.md` for the exact list and file specs.
 - [ ] Compress and optimise all media
 
 ## Phase 4: Functionality
-- [ ] **(client)** Choose where enquiries go: email (Resend) and/or CRM/Zapier webhook
-- [ ] Connect the form and send a test enquiry end to end
+- [x] Enquiries go to contact@latoyalovell.com (for now) via Resend
+- [ ] Create Resend account and add `RESEND_API_KEY` in Vercel (see README → Contact form)
+- [ ] Send a test enquiry end to end on the live site
+- [ ] Later: verify lovellmedia.com in Resend and switch to a Lovell Media inbox
 - [ ] Analytics (Vercel Analytics or Plausible: no cookie banner needed)
 - [ ] **(client)** Privacy policy text (required because the form collects personal data)
 - [ ] Optional: content editor (CMS) so Lovell can add projects without a developer
