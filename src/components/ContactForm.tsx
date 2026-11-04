@@ -68,7 +68,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       </div>
 
       <div className="flex flex-col gap-4 md:col-span-2 md:flex-row md:items-center md:justify-between">
-        <p role="alert" aria-live="polite" className="text-sm text-red">
+        <p role="alert" aria-live="polite" className="text-sm text-red-bright">
           {state.status === "error" ? state.message : ""}
         </p>
         <button type="submit" disabled={pending} className="btn btn-red justify-center disabled:opacity-60">
@@ -102,7 +102,7 @@ function Field({
       </label>
       {children}
       {error && (
-        <p id={`${name}-err`} className="mt-2 text-sm text-red">
+        <p id={`${name}-err`} className="mt-2 text-sm text-red-bright">
           {error}
         </p>
       )}

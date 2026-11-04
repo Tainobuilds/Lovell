@@ -51,7 +51,7 @@ export default async function ServicePage({ params }: Props) {
           <Reveal>
             <nav aria-label="Breadcrumb" className="eyebrow mb-6 text-mute">
               <Link href="/services" className="link-u hover:text-paper">Services</Link>
-              <span className="mx-3 text-red">/</span>
+              <span className="mx-3 text-red-bright">/</span>
               <span className="text-paper">{service.index}</span>
             </nav>
             <h1 className="display text-[clamp(4.5rem,16vw,16rem)]">{service.name}</h1>
@@ -75,7 +75,7 @@ export default async function ServicePage({ params }: Props) {
           <ul>
             {service.capabilities.map((c, n) => (
               <li key={c} className="flex items-baseline gap-4 border-t border-line py-4 last:border-b">
-                <span className="eyebrow text-red">{String(n + 1).padStart(2, "0")}</span>
+                <span className="eyebrow text-red-bright">{String(n + 1).padStart(2, "0")}</span>
                 <span className="text-lg">{c}</span>
               </li>
             ))}

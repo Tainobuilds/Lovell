@@ -24,7 +24,7 @@ export function ServiceIndex({ services }: { services: Service[] }) {
               onFocus={() => setActive(i)}
               className="group grid grid-cols-[3rem_1fr_auto] items-center gap-4 py-6 md:grid-cols-[4rem_1fr_auto] md:py-8"
             >
-              <span className={`eyebrow transition-colors ${active === i ? "text-red" : "text-faint"}`}>{s.index}</span>
+              <span className={`eyebrow transition-colors ${active === i ? "text-red-bright" : "text-faint"}`}>{s.index}</span>
               <span>
                 <span
                   className={`display block text-[clamp(2.5rem,7vw,6rem)] transition-all duration-500 ease-[var(--ease-cine)] lg:group-hover:translate-x-3 ${
@@ -68,7 +68,7 @@ export function ServiceIndex({ services }: { services: Service[] }) {
                 className="h-full w-full"
               />
               <div className="absolute bottom-6 left-6 right-6">
-                <p className="eyebrow text-red">{s.index} / 05</p>
+                <p className="eyebrow text-red-bright">{s.index} / 05</p>
                 <p className="mt-2 max-w-xs text-sm text-paper/80">{s.description}</p>
               </div>
             </div>

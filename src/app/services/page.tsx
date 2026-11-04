@@ -44,7 +44,7 @@ export default function ServicesPage() {
                 />
               </div>
               <div className="md:col-span-5">
-                <p className="eyebrow text-red">{s.index} / 05</p>
+                <p className="eyebrow text-red-bright">{s.index} / 05</p>
                 <h2 className="display mt-4 text-[clamp(3rem,7vw,6rem)] transition-colors group-hover:text-red">{s.name}</h2>
                 <p className="editorial mt-3 text-2xl text-paper/90">{s.statement}</p>
                 <p className="mt-5 text-mute">{s.description}</p>

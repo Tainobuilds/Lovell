@@ -27,10 +27,10 @@ export function CtaBand({
       </div>
       <div className="container-x relative py-24 md:py-36">
         <Reveal>
-          <p className="eyebrow mb-6 text-paper/80">{eyebrow}</p>
+          <p className="eyebrow mb-6 text-paper">{eyebrow}</p>
           <h2 className="display text-[clamp(3.5rem,11vw,10rem)] text-ink">{title}</h2>
           <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-md text-lg text-paper/90">{body}</p>
+            <p className="max-w-md text-lg text-paper">{body}</p>
             <Link href={href} className="btn bg-ink text-paper hover:bg-paper hover:text-ink">
               {label} <span className="arrow">→</span>
             </Link>

@@ -9,10 +9,11 @@
 | `paper` | `#ffffff` | Type, contrast |
 | `red` | `#e10a0a` | Accent, CTAs, key words |
 | `red-deep` | `#a60707` | Hover/pressed on red |
-| `mute` / `faint` / `line` | white at 62% / 38% / 12% | Secondary text, labels, rules |
+| `red-bright` | `#ff2b2b` | Small red text on black (labels, errors). Same red, lifted to pass AA |
+| `mute` / `faint` / `line` | white at 62% / 50% / 12% | Secondary text, labels, rules |
 
 Red is an accent. Use it for one word in a headline, CTAs, index numbers and markers. The closing
-CTA band is the one full-red surface. White text on red passes AA; small red text on black is for labels only.
+CTA band is the one full-red surface. Contrast: `red` on black is 4.0:1, fine for large display type only. Any small red text uses `red-bright` (5.3:1). White on red is 4.9:1.
 
 ## Type
 - **Display** (`.display`): Anton, uppercase, line-height 0.88. Headlines and big indexes.

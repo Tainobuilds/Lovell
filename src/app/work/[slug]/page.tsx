@@ -42,7 +42,7 @@ export default async function ProjectPage({ params }: Props) {
         <Reveal>
           <nav aria-label="Breadcrumb" className="eyebrow mb-6 text-mute">
             <Link href="/work" className="link-u hover:text-paper">Work</Link>
-            <span className="mx-3 text-red">/</span>
+            <span className="mx-3 text-red-bright">/</span>
             <Link href={`/work?category=${service.slug}`} className="link-u hover:text-paper">{service.name}</Link>
           </nav>
           <h1 className="display text-[clamp(3.25rem,10vw,9.5rem)]">{project.title}</h1>

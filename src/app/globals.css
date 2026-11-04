@@ -12,8 +12,9 @@
   --color-paper: #ffffff;      /* type + contrast */
   --color-red: #e10a0a;        /* primary accent */
   --color-red-deep: #a60707;   /* pressed / hover on red */
+  --color-red-bright: #ff2b2b; /* SMALL red text on black only (AA 5.3:1) */
   --color-mute: rgb(255 255 255 / 0.62);
-  --color-faint: rgb(255 255 255 / 0.38);
+  --color-faint: rgb(255 255 255 / 0.5);
   --color-line: rgb(255 255 255 / 0.12);
 
   --font-display: var(--font-anton), "Impact", "Arial Narrow", sans-serif;

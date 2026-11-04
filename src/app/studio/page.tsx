@@ -70,7 +70,7 @@ export default function StudioPage() {
         <div className="mt-14 grid gap-px bg-line md:grid-cols-2">
           {principles.map((p, i) => (
             <Reveal key={p.title} delay={(i % 2) * 100} className="bg-ink p-8 md:p-12">
-              <p className="eyebrow text-red">0{i + 1}</p>
+              <p className="eyebrow text-red-bright">0{i + 1}</p>
               <h3 className="display mt-4 text-4xl md:text-5xl">{p.title}</h3>
               <p className="mt-4 max-w-md text-mute">{p.body}</p>
             </Reveal>
@@ -124,7 +124,7 @@ export default function StudioPage() {
                   className="group flex items-baseline justify-between gap-6 border-t border-line py-6 last:border-b"
                 >
                   <span className="flex items-baseline gap-5">
-                    <span className="eyebrow text-red">{s.index}</span>
+                    <span className="eyebrow text-red-bright">{s.index}</span>
                     <span className="display text-4xl transition-colors group-hover:text-red md:text-5xl">{s.name}</span>
                   </span>
                   <span className="hidden text-right text-sm text-mute sm:block">{s.capabilities.slice(0, 2).join(" · ")}</span>

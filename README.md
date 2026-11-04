@@ -46,6 +46,10 @@ The server action is `src/app/contact/actions.ts`. Configure delivery in `.env.l
 Resend email and/or a webhook. With neither set, enquiries are logged in dev; in production the
 form tells visitors to email directly, so nothing is silently dropped. Includes validation and a spam honeypot.
 
+## Project outline
+
+See `docs/ROADMAP.md` (what is left) and `docs/CONTENT-INTAKE.md` (what to collect from Lovell Media).
+
 ## Design system
 
 See `DESIGN.md`.

@@ -44,7 +44,7 @@ export function WorkGallery({
                 on ? "border-red bg-red text-paper" : "border-line text-mute hover:border-paper hover:text-paper"
               }`}
             >
-              {f.name} <sup className="ml-1 text-[0.6rem] opacity-70">{f.count}</sup>
+              {f.name} <sup className="ml-1 text-[0.6rem]">{f.count}</sup>
             </Link>
           );
         })}
