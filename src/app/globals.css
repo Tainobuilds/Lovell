@@ -191,7 +191,34 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+   View transitions: a film "cut" between pages.
+   Old page dips out fast; new page rises in from a soft blur.
+--------------------------------------------------------------------------- */
+::view-transition-old(.cut-out) {
+  animation: 220ms cubic-bezier(0.7, 0, 0.84, 0) both cut-out;
+}
+::view-transition-new(.cut-in) {
+  animation: 600ms var(--ease-cine) 160ms both cut-in;
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+@keyframes cut-out {
+  to { opacity: 0; transform: scale(0.985); filter: blur(2px); }
+}
+@keyframes cut-in {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
   *,
   *::before,
   *::after {

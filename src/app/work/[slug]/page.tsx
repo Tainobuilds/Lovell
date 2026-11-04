@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Frame } from "@/components/Frame";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
+import { ProjectGallery } from "@/components/ProjectGallery";
 import { getProject, projects } from "@/content/projects";
 import { getService } from "@/content/services";
 
@@ -101,18 +102,11 @@ export default async function ProjectPage({ params }: Props) {
         </Reveal>
       </section>
 
-      <section aria-label="Gallery" className="container-x grid gap-4 pb-24 md:grid-cols-2 md:gap-6 md:pb-32">
-        {gallery.map((src, n) => (
-          <Reveal key={n} delay={(n % 2) * 100} className={n === 0 ? "md:col-span-2" : ""}>
-            <Frame
-              src={src}
-              alt={`${project.title}, still ${n + 1}`}
-              category={project.category}
-              sizes={n === 0 ? "100vw" : "(min-width: 768px) 50vw, 100vw"}
-              className={n === 0 ? "aspect-[16/9]" : "aspect-[4/5]"}
-            />
-          </Reveal>
-        ))}
+      <section aria-label="Gallery" className="container-x pb-24 md:pb-32">
+        <ProjectGallery
+          category={project.category}
+          items={gallery.map((src, n) => ({ src, alt: `${project.title}, still ${n + 1}` }))}
+        />
       </section>
 
       <Link href={`/work/${next.slug}`} className="group block border-t border-line">

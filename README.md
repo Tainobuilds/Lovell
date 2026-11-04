@@ -22,6 +22,7 @@ npm run build && npm start
 | `/services/[slug]` | OOH, Concerts, Podcasts, Events, Branded Content |
 | `/studio` | About, approach, process, capabilities |
 | `/contact` | Enquiry form (pre-selects service via `?service=`) |
+| `/privacy` | Privacy policy (draft; review before launch) |
 
 Also: `sitemap.xml`, `robots.txt`, generated Open Graph image, JSON-LD organization data, 404.
 
@@ -58,6 +59,12 @@ See `docs/ROADMAP.md` (what is left) and `docs/CONTENT-INTAKE.md` (what to colle
 
 Enquiries arrive with the visitor's address as *reply-to*, so pressing Reply answers them directly.
 To send from a Lovell Media address later, verify the domain in Resend and set `CONTACT_FROM_EMAIL`.
+
+## Analytics
+
+Vercel Web Analytics (`@vercel/analytics`) is in the root layout. It's cookie-free, so no consent
+banner is needed. Turn it on in Vercel under **Project → Analytics → Enable**. Locally the script
+404s, which is expected.
 
 ## Design system
 

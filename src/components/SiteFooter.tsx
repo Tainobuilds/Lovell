@@ -57,7 +57,10 @@ export function SiteFooter() {
       </div>
 
       <div className="container-x flex flex-col gap-2 border-t border-line py-6 text-xs text-faint md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
+          <Link href="/privacy" className="link-u ml-4 hover:text-paper">Privacy</Link>
+        </p>
         <p>Independent production company{site.location ? ` · ${site.location}` : ""}</p>
       </div>
     </footer>

@@ -13,6 +13,8 @@ type FrameProps = {
   label?: string;
   priority?: boolean;
   sizes?: string;
+  /** "contain" shows the whole image (used in the lightbox). */
+  fit?: "cover" | "contain";
   className?: string;
 };
 
@@ -29,13 +31,15 @@ export function Frame({
   label,
   priority,
   sizes = "100vw",
+  fit = "cover",
   className = "",
 }: FrameProps) {
+  const fitClass = fit === "contain" ? "object-contain" : "object-cover";
   return (
     <div className={`${/\b(absolute|fixed)\b/.test(className) ? "" : "relative"} overflow-hidden bg-ink-3 ${className}`}>
       {video ? (
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full ${fitClass}`}
           src={video}
           poster={src}
           autoPlay
@@ -46,7 +50,7 @@ export function Frame({
           aria-label={alt || undefined}
         />
       ) : src ? (
-        <Image src={src} alt={alt} fill priority={priority} sizes={sizes} className="object-cover" />
+        <Image src={src} alt={alt} fill priority={priority} sizes={sizes} className={fitClass} />
       ) : (
         <Placeholder category={category} label={label} />
       )}

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState } from "react";
 import { submitEnquiry } from "@/app/contact/actions";
 import { services } from "@/content/services";
@@ -68,9 +69,15 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       </div>
 
       <div className="flex flex-col gap-4 md:col-span-2 md:flex-row md:items-center md:justify-between">
-        <p role="alert" aria-live="polite" className="text-sm text-red-bright">
-          {state.status === "error" ? state.message : ""}
-        </p>
+        <div className="space-y-2">
+          <p role="alert" aria-live="polite" className="text-sm text-red-bright empty:hidden">
+            {state.status === "error" ? state.message : ""}
+          </p>
+          <p className="text-sm text-faint">
+            We only use your details to reply.{" "}
+            <Link href="/privacy" className="link-u text-mute hover:text-paper">Privacy policy</Link>
+          </p>
+        </div>
         <button type="submit" disabled={pending} className="btn btn-red justify-center disabled:opacity-60">
           {pending ? "Sending…" : "Send enquiry"} <span className="arrow">→</span>
         </button>

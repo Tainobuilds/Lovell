@@ -14,5 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...projects.filter((p) => !p.sample).map((p) => ({ url: u(`/work/${p.slug}`), priority: 0.7 })),
     { url: u("/studio"), priority: 0.6 },
     { url: u("/contact"), priority: 0.6 },
+    { url: u("/privacy"), priority: 0.2 },
   ];
 }

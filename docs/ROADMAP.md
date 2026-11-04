@@ -33,8 +33,12 @@ See `docs/CONTENT-INTAKE.md` for the exact list and file specs.
 - [ ] Create Resend account and add `RESEND_API_KEY` in Vercel (see README → Contact form)
 - [ ] Send a test enquiry end to end on the live site
 - [ ] Later: verify lovellmedia.com in Resend and switch to a Lovell Media inbox
-- [ ] Analytics (Vercel Analytics or Plausible: no cookie banner needed)
-- [ ] **(client)** Privacy policy text (required because the form collects personal data)
+- [x] Analytics: Vercel Web Analytics wired in (cookie-free, no banner needed)
+- [ ] Turn on Analytics in the Vercel dashboard (Project → Analytics → Enable)
+- [x] Privacy policy page drafted at `/privacy`, linked from footer and form
+- [ ] **(client)** Review privacy policy for Lovell's jurisdiction
+- [x] Full-screen gallery viewer on project pages (keyboard, buttons, swipe)
+- [x] Cinematic page transitions (View Transitions; header stays fixed)
 - [ ] Optional: content editor (CMS) so Lovell can add projects without a developer
 
 ## Phase 5: Launch
@@ -46,4 +50,4 @@ See `docs/CONTENT-INTAKE.md` for the exact list and file specs.
 - [ ] **(client)** Final sign-off, then go live
 
 ## Pages (7 templates, ~20 URLs)
-Home · Work · Project detail (one per project) · Services · 5 × Service page · Studio · Contact · 404
+Home · Work · Project detail (one per project) · Services · 5 × Service page · Studio · Contact · Privacy · 404
