@@ -1,0 +1,15 @@
+name: Podcasts
+order: 3
+short: Podcasts
+statement: Conversations worth watching.
+description: >-
+  Podcast production that looks as good as it sounds, with designed recording environments,
+  multi-camera video podcasts, interviews and multimedia storytelling built for every platform.
+capabilities:
+  - Audio & video podcast production
+  - Set & recording environment design
+  - Interview series
+  - Short-form clips & social cutdowns
+  - Show development & format
+  - Post-production & distribution prep
+alt: ''

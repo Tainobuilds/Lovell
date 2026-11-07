@@ -5,19 +5,18 @@ import { Frame } from "@/components/Frame";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
 import { ProjectGallery } from "@/components/ProjectGallery";
-import { getProject, projects } from "@/content/projects";
-import { getService } from "@/content/services";
+import { getProject, getProjects, getService } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  return (await getProjects()).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = getProject((await params).slug);
+  const project = await getProject((await params).slug);
   if (!project) return {};
   return {
     title: project.title,
@@ -30,10 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProjectPage({ params }: Props) {
-  const project = getProject((await params).slug);
+  const project = await getProject((await params).slug);
   if (!project) notFound();
-  const service = getService(project.category)!;
-  const i = projects.indexOf(project);
+  const service = (await getService(project.category)) ?? { slug: project.category, name: project.categoryName };
+  const projects = await getProjects();
+  const i = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(i + 1) % projects.length];
   const gallery: (string | undefined)[] = project.gallery.length ? project.gallery : [undefined, undefined, undefined];
 
@@ -112,7 +112,7 @@ export default async function ProjectPage({ params }: Props) {
       <Link href={`/work/${next.slug}`} className="group block border-t border-line">
         <div className="container-x flex items-center justify-between gap-6 py-14 md:py-20">
           <div>
-            <p className="eyebrow text-faint">Next project · {getService(next.category)?.name}</p>
+            <p className="eyebrow text-faint">Next project · {next.categoryName}</p>
             <p className="display mt-3 text-[clamp(2.5rem,7vw,6.5rem)] transition-colors group-hover:text-red">{next.title}</p>
           </div>
           <span aria-hidden className="display text-6xl transition-transform duration-500 group-hover:translate-x-3 md:text-8xl">→</span>

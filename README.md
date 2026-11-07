@@ -3,7 +3,7 @@
 Standalone site for **Lovell Media**, an independent production company.
 *Every frame has a story.* Red / black / white.
 
-Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · fully static except the contact form action.
+Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · Keystatic content editor · fully static except the contact form action.
 
 ```bash
 npm install
@@ -26,20 +26,14 @@ npm run build && npm start
 
 Also: `sitemap.xml`, `robots.txt`, generated Open Graph image, JSON-LD organization data, 404.
 
-## Replacing content (no code changes needed)
+## Editing content
 
-All copy and media live in `src/content/`:
+Use the built-in **content editor at `/keystatic`**: projects, services, homepage wording,
+contact details, social links and showreel. No code needed. See **`docs/CONTENT-EDITOR.md`**
+(includes the one-time setup for editing on the live site).
 
-- **`site.ts`**: email, location, social links (empty links are hidden), showreel video.
-- **`services.ts`**: the five categories. Add `media: { image, video, alt }` for real visuals.
-- **`projects.ts`**: portfolio. **Every current entry is a sample** (`sample: true`, shown with a
-  "Sample" badge and set to `noindex`). Replace with real projects and set `sample: false`.
-
-Put media in `public/media/…` and reference it as `/media/…`. Anything without media renders a
-branded placeholder frame styled for its category.
-
-Media guidelines: stills as JPG/WebP at about 2400px on the long edge (Next optimises them);
-loops as MP4/H.264, muted, under about 8MB; long films via `embed` (Vimeo/YouTube player URL).
+Content is stored as YAML in `content/` and media in `public/media/`. All current projects are
+**samples** (`sample: true`: "Sample" badge, hidden from Google); replace them with real work.
 
 ## Contact form
 

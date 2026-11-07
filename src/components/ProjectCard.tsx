@@ -1,6 +1,5 @@
 import Link from "next/link";
-import type { Project } from "@/content/projects";
-import { getService } from "@/content/services";
+import type { Project } from "@/content/types";
 import { Frame } from "./Frame";
 
 export function ProjectCard({
@@ -14,7 +13,6 @@ export function ProjectCard({
   sizes?: string;
   priority?: boolean;
 }) {
-  const service = getService(project.category);
   return (
     <Link href={`/work/${project.slug}`} className="group block">
       <div className={`relative overflow-hidden ${aspect}`}>
@@ -28,7 +26,7 @@ export function ProjectCard({
         />
         <div className="absolute inset-0 bg-red/0 mix-blend-multiply transition-colors duration-700 group-hover:bg-red/25" />
         <div className="absolute left-4 top-4 flex gap-2">
-          <span className="eyebrow bg-ink/80 px-2.5 py-1.5 text-[0.6rem] backdrop-blur">{service?.name}</span>
+          <span className="eyebrow bg-ink/80 px-2.5 py-1.5 text-[0.6rem] backdrop-blur">{project.categoryName}</span>
           {project.sample && (
             <span className="eyebrow border border-paper/30 px-2.5 py-1.5 text-[0.6rem] text-mute">Sample</span>
           )}

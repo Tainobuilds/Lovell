@@ -4,8 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { Frame } from "@/components/Frame";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
-import { services } from "@/content/services";
-import { site } from "@/content/site";
+import { getServices, getSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -40,7 +39,8 @@ const process = [
   { step: "Deliver", body: "Edit, finish and versioning for every placement and platform." },
 ];
 
-export default function StudioPage() {
+export default async function StudioPage() {
+  const [services, settings] = await Promise.all([getServices(), getSettings()]);
   return (
     <>
       <PageHero
@@ -109,8 +109,8 @@ export default function StudioPage() {
             </h2>
             <p className="mt-6 max-w-md text-mute">
               Founded by{" "}
-              <a href={site.founder.url} target="_blank" rel="noopener noreferrer" className="link-u text-paper">
-                {site.founder.name}
+              <a href={settings.founder.url} target="_blank" rel="noopener noreferrer" className="link-u text-paper">
+                {settings.founder.name}
               </a>
               , Lovell Media is built as a company with room to grow. Its team, partners and
               crew come together around each production.

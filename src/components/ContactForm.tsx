@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import { submitEnquiry } from "@/app/contact/actions";
-import { services } from "@/content/services";
+import { submitEnquiry } from "@/app/(site)/contact/actions";
 import { budgets, timelines, type EnquiryField, type EnquiryState } from "@/lib/enquiry";
 
 const initial: EnquiryState = { status: "idle" };
 
-export function ContactForm({ defaultService = "" }: { defaultService?: string }) {
+export function ContactForm({
+  services,
+  defaultService = "",
+}: {
+  services: { slug: string; name: string }[];
+  defaultService?: string;
+}) {
   const [state, action, pending] = useActionState(submitEnquiry, initial);
 
   if (state.status === "success") {

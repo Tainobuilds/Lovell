@@ -1,7 +1,6 @@
 "use server";
 
-import { getService } from "@/content/services";
-import { site } from "@/content/site";
+import { getServices, getSettings } from "@/lib/content";
 import { validateEnquiry, type EnquiryState } from "@/lib/enquiry";
 
 /**
@@ -15,10 +14,11 @@ export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promis
   // Honeypot: real users never fill this hidden field.
   if (String(form.get("website") ?? "")) return { status: "success" };
 
-  const { values, errors, ok } = validateEnquiry(form);
+  const [services, settings] = await Promise.all([getServices(), getSettings()]);
+  const { values, errors, ok } = validateEnquiry(form, services.map((s) => s.slug));
   if (!ok) return { status: "error", errors, values, message: "Please check the highlighted fields." };
 
-  const serviceName = values.service === "other" ? "Other" : getService(values.service)?.name ?? "Not specified";
+  const serviceName = values.service === "other" ? "Other" : services.find((s) => s.slug === values.service)?.name ?? "Not specified";
   const enquiry = { ...values, serviceName, submittedAt: new Date().toISOString() };
 
   const resendKey = process.env.RESEND_API_KEY;
@@ -31,7 +31,7 @@ export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promis
         return {
           status: "error",
           values,
-          message: `Our form is temporarily unavailable. Please email us at ${site.email}.`,
+          message: `Our form is temporarily unavailable. Please email us at ${settings.email}.`,
         };
       }
       console.info("[enquiry] (dev, not delivered)", enquiry);
@@ -47,7 +47,7 @@ export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promis
             // Resend's shared test sender works without verifying a domain, but only
             // delivers to the email address the Resend account was created with.
             from: process.env.CONTACT_FROM_EMAIL || "Lovell Media Website <onboarding@resend.dev>",
-            to: (process.env.CONTACT_TO_EMAIL || site.enquiriesTo).split(",").map((s) => s.trim()),
+            to: (process.env.CONTACT_TO_EMAIL || settings.enquiriesTo).split(",").map((s) => s.trim()),
             reply_to: values.email,
             subject: `New enquiry: ${serviceName} (${values.name})`,
             text: [
@@ -84,7 +84,7 @@ export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promis
     return {
       status: "error",
       values,
-      message: `Something went wrong sending your message. Please try again or email ${site.email}.`,
+      message: `Something went wrong sending your message. Please try again or email ${settings.email}.`,
     };
   }
 }

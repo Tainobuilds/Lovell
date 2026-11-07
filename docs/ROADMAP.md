@@ -9,6 +9,7 @@ Status key: [x] done · [~] in progress · [ ] to do · **(client)** needs mater
 - [x] Contact form with validation and spam protection
 - [x] SEO basics: titles, descriptions, sitemap, robots, share image, structured data
 - [x] Accessibility pass: automated WCAG 2 AA scan of every page, contrast fixed
+- [x] Security: Next.js upgraded to 16.4.5 (fixes critical advisories in 16.3.x)
 
 ## Phase 2: Brand alignment
 - [ ] **(client)** Approved website mockup (the "creative north star")
@@ -25,7 +26,7 @@ See `docs/CONTENT-INTAKE.md` for the exact list and file specs.
 - [ ] **(client)** 2–4 real projects per category (10–20 total)
 - [ ] **(client)** Review and approve all copy (headlines, service descriptions, studio page)
 - [ ] **(client)** Contact email, city/base, social links, budget currency
-- [ ] Load content into `src/content/`, remove sample projects
+- [ ] Load content through the editor, delete sample projects
 - [ ] Compress and optimise all media
 
 ## Phase 4: Functionality
@@ -39,7 +40,8 @@ See `docs/CONTENT-INTAKE.md` for the exact list and file specs.
 - [ ] **(client)** Review privacy policy for Lovell's jurisdiction
 - [x] Full-screen gallery viewer on project pages (keyboard, buttons, swipe)
 - [x] Cinematic page transitions (View Transitions; header stays fixed)
-- [ ] Optional: content editor (CMS) so Lovell can add projects without a developer
+- [x] Content editor (Keystatic) at `/keystatic`: projects, services, homepage wording, settings
+- [ ] One-time setup to edit on the live site (needs a computer, ~10 min; see `docs/CONTENT-EDITOR.md`)
 
 ## Phase 5: Launch
 - [ ] Deploy to Vercel (import `Tainobuilds/Lovell`, no extra settings)

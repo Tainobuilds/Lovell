@@ -1,6 +1,6 @@
-Drop real media here, then reference it from `src/content/*.ts` as `/media/...`.
+Media uploaded through the content editor (`/keystatic`) is saved here automatically:
 
-- `showreel/`: hero video (MP4) and poster (JPG) → `site.ts` → `showreel`
-- `services/`: one image or loop per service, e.g. `services/ooh.jpg` → `services.ts` → `media`
-- `projects/<project-slug>/`: `cover.jpg`, `01.jpg`, `02.jpg`… → `projects.ts`
+- `showreel/`: homepage showreel video and poster (Site settings)
+- `services/`: hero image or loop per service (Services)
+- `projects/<project-slug>/`: cover, gallery images and video loops (Projects)
 - `studio/`: team and studio photography

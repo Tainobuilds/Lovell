@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Anton, Inter, Instrument_Serif } from "next/font/google";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -40,34 +38,18 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
+/** Root shell: fonts, global styles, analytics. Site chrome lives in (site)/layout.tsx. */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: site.name,
-    url: site.url,
-    email: site.email,
-    description: site.description,
-    founder: { "@type": "Person", name: site.founder.name, url: site.founder.url },
-    sameAs: site.socials.map((s) => s.href).filter(Boolean),
-  };
-
   return (
     <html lang="en" className={`${anton.variable} ${inter.variable} ${instrument.variable}`}>
       <body>
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
+        {children}
         {/* Cookie-free, anonymous page-view analytics. Active on Vercel once
             Analytics is enabled for the project; a no-op elsewhere. */}
         <Analytics />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
       </body>
     </html>
   );

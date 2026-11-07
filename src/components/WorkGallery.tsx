@@ -1,6 +1,5 @@
 import Link from "next/link";
-import type { Project } from "@/content/projects";
-import type { Service } from "@/content/services";
+import type { Project, Service } from "@/content/types";
 import { ProjectCard } from "./ProjectCard";
 
 const layouts = ["md:col-span-7 aspect-[4/3]", "md:col-span-5 aspect-[4/5]", "md:col-span-5 aspect-[4/5]", "md:col-span-7 aspect-[4/3]"];

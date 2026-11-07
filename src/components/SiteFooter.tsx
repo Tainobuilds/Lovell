@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { activeSocials, nav, site } from "@/content/site";
-import { services } from "@/content/services";
+import { nav, site } from "@/content/site";
+import { getHomepage, getServices, getSettings } from "@/lib/content";
+import { Rich } from "./Rich";
 import { Wordmark } from "./Wordmark";
 
-export function SiteFooter() {
-  const socials = activeSocials();
+export async function SiteFooter() {
+  const [services, settings, home] = await Promise.all([getServices(), getSettings(), getHomepage()]);
+  const socials = settings.socials;
   return (
     <footer className="border-t border-line bg-ink">
       <div className="container-x grid gap-12 py-16 md:grid-cols-12 md:py-20">
@@ -13,11 +15,10 @@ export function SiteFooter() {
             <Wordmark />
           </Link>
           <p className="display mt-8 text-4xl md:text-5xl">
-            Every frame <br />
-            has a <span className="text-red">story.</span>
+            <Rich text={home.footerLine} />
           </p>
-          <a href={`mailto:${site.email}`} className="link-u mt-8 inline-block text-lg text-mute hover:text-paper">
-            {site.email}
+          <a href={`mailto:${settings.email}`} className="link-u mt-8 inline-block text-lg text-mute hover:text-paper">
+            {settings.email}
           </a>
         </div>
 
@@ -61,7 +62,7 @@ export function SiteFooter() {
           © {new Date().getFullYear()} {site.name}. All rights reserved.
           <Link href="/privacy" className="link-u ml-4 hover:text-paper">Privacy</Link>
         </p>
-        <p>Independent production company{site.location ? ` · ${site.location}` : ""}</p>
+        <p>Independent production company{settings.location ? ` · ${settings.location}` : ""}</p>
       </div>
     </footer>
   );

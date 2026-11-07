@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { ServiceSlug } from "@/content/services";
+import type { ServiceSlug } from "@/content/types";
 
 type FrameProps = {
   /** Image path under /public (or remote URL allowed in next.config). */

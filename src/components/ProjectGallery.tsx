@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { ServiceSlug } from "@/content/services";
+import type { ServiceSlug } from "@/content/types";
 import { Frame } from "./Frame";
 import { Reveal } from "./Reveal";
 

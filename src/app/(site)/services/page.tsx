@@ -4,7 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { Frame } from "@/components/Frame";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
-import { services } from "@/content/services";
+import { getServices } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services" },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await getServices();
   return (
     <>
       <PageHero

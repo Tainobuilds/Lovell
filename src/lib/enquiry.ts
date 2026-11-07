@@ -1,4 +1,3 @@
-import { services } from "@/content/services";
 
 export type EnquiryState = {
   status: "idle" | "success" | "error";
@@ -16,7 +15,7 @@ export const timelines = ["ASAP", "Within 1 month", "1 – 3 months", "3 – 6 m
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /** Pure validation so it can be unit-tested and reused. */
-export function validateEnquiry(form: FormData) {
+export function validateEnquiry(form: FormData, serviceSlugs: string[]) {
   const get = (k: EnquiryField) => String(form.get(k) ?? "").trim();
   const values = {
     name: get("name"),
@@ -30,7 +29,7 @@ export function validateEnquiry(form: FormData) {
   const errors: EnquiryState["errors"] = {};
   if (values.name.length < 2) errors.name = "Please tell us your name.";
   if (!EMAIL.test(values.email)) errors.email = "Please enter a valid email address.";
-  if (values.service && !services.some((s) => s.slug === values.service) && values.service !== "other")
+  if (values.service && !serviceSlugs.includes(values.service) && values.service !== "other")
     errors.service = "Please choose a service.";
   if (values.message.length < 10) errors.message = "A sentence or two about the project helps us respond.";
   if (values.message.length > 5000) errors.message = "Please keep it under 5,000 characters.";

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import type { Service } from "@/content/services";
+import type { Service } from "@/content/types";
 import { Frame } from "./Frame";
 
 /**

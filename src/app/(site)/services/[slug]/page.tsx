@@ -5,19 +5,18 @@ import { Frame } from "@/components/Frame";
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 import { CtaBand } from "@/components/CtaBand";
-import { getService, services } from "@/content/services";
-import { projectsFor } from "@/content/projects";
+import { getProjectsFor, getService, getServices } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+export async function generateStaticParams() {
+  return (await getServices()).map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const service = getService((await params).slug);
+  const service = await getService((await params).slug);
   if (!service) return {};
   return {
     title: `${service.name} Production`,
@@ -27,12 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ServicePage({ params }: Props) {
-  const service = getService((await params).slug);
+  const service = await getService((await params).slug);
   if (!service) notFound();
 
-  const i = services.indexOf(service);
+  const services = await getServices();
+  const i = services.findIndex((s) => s.slug === service.slug);
   const next = services[(i + 1) % services.length];
-  const work = projectsFor(service.slug);
+  const work = await getProjectsFor(service.slug);
 
   return (
     <>

@@ -4,7 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactFormWithParams } from "@/components/ContactFormWithParams";
 import { Reveal } from "@/components/Reveal";
-import { activeSocials, site } from "@/content/site";
+import { getServices, getSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -12,8 +12,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default function ContactPage() {
-  const socials = activeSocials();
+export default async function ContactPage() {
+  const [settings, allServices] = await Promise.all([getSettings(), getServices()]);
+  const socials = settings.socials;
+  const services = allServices.map((s) => ({ slug: s.slug, name: s.name }));
   return (
     <>
       <PageHero
@@ -27,19 +29,19 @@ export default function ContactPage() {
       />
       <section className="container-x grid gap-16 pb-24 md:grid-cols-12 md:pb-36">
         <Reveal className="md:col-span-8">
-          <Suspense fallback={<ContactForm />}>
-            <ContactFormWithParams />
+          <Suspense fallback={<ContactForm services={services} />}>
+            <ContactFormWithParams services={services} />
           </Suspense>
         </Reveal>
         <Reveal delay={120} className="space-y-10 md:col-span-3 md:col-start-10">
           <div>
             <h2 className="eyebrow mb-3 text-faint">Email</h2>
-            <a href={`mailto:${site.email}`} className="link-u text-lg">{site.email}</a>
+            <a href={`mailto:${settings.email}`} className="link-u text-lg">{settings.email}</a>
           </div>
-          {site.location && (
+          {settings.location && (
             <div>
               <h2 className="eyebrow mb-3 text-faint">Studio</h2>
-              <p className="text-lg">{site.location}</p>
+              <p className="text-lg">{settings.location}</p>
             </div>
           )}
           {socials.length > 0 && (

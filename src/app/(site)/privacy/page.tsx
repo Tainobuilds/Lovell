@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site";
+import { getSettings } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -16,10 +17,11 @@ export const metadata: Metadata = {
  */
 const LAST_UPDATED = "4 November 2026";
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const settings = await getSettings();
   const mail = (
-    <a href={`mailto:${site.email}`} className="link-u text-paper">
-      {site.email}
+    <a href={`mailto:${settings.email}`} className="link-u text-paper">
+      {settings.email}
     </a>
   );
 

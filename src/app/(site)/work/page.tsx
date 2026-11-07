@@ -4,8 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { WorkGallery } from "@/components/WorkGallery";
 import { WorkGalleryClient } from "@/components/WorkGalleryClient";
 import { CtaBand } from "@/components/CtaBand";
-import { projects } from "@/content/projects";
-import { services } from "@/content/services";
+import { getProjects, getServices } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -13,7 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/work" },
 };
 
-export default function WorkPage() {
+export default async function WorkPage() {
+  const [projects, services] = await Promise.all([getProjects(), getServices()]);
   return (
     <>
       <PageHero
