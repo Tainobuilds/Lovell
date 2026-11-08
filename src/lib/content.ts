@@ -64,6 +64,7 @@ export const getProjects = cache(async (): Promise<Project[]> => {
         gallery: entry.gallery.filter((g): g is string => Boolean(g)),
         featured: entry.featured,
         sample: entry.sample,
+        directorGroup: entry.directorGroup,
       } satisfies Project,
     }))
     .sort((a, b) => a.order - b.order || a.project.title.localeCompare(b.project.title))
@@ -95,3 +96,8 @@ export const getSettings = cache(async () => {
 });
 
 export const getHomepage = cache(async () => reader.singletons.homepage.readOrThrow());
+
+export const getDirector = cache(async () => {
+  const d = await reader.singletons.director.readOrThrow();
+  return { ...d, portrait: opt(d.portrait), reel: opt(d.reel), reelEmbed: opt(d.reelEmbed), reelPoster: opt(d.reelPoster) };
+});

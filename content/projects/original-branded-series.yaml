@@ -12,3 +12,4 @@ gallery: []
 featured: false
 sample: true
 order: 100
+directorGroup: narrative

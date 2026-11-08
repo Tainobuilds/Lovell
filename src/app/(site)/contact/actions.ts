@@ -1,7 +1,7 @@
 "use server";
 
 import { getServices, getSettings } from "@/lib/content";
-import { validateEnquiry, type EnquiryState } from "@/lib/enquiry";
+import { extraServices, validateEnquiry, type EnquiryState } from "@/lib/enquiry";
 
 /**
  * Handles the enquiry form. Delivery is configured with env vars (see .env.example):
@@ -18,7 +18,7 @@ export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promis
   const { values, errors, ok } = validateEnquiry(form, services.map((s) => s.slug));
   if (!ok) return { status: "error", errors, values, message: "Please check the highlighted fields." };
 
-  const serviceName = values.service === "other" ? "Other" : services.find((s) => s.slug === values.service)?.name ?? "Not specified";
+  const serviceName = values.service === "other" ? "Other" : [...services, ...extraServices].find((s) => s.slug === values.service)?.name ?? "Not specified";
   const enquiry = { ...values, serviceName, submittedAt: new Date().toISOString() };
 
   const resendKey = process.env.RESEND_API_KEY;
@@ -57,6 +57,7 @@ export async function submitEnquiry(_prev: EnquiryState, form: FormData): Promis
               `Service: ${serviceName}`,
               `Budget: ${values.budget || "-"}`,
               `Timeline: ${values.timeline || "-"}`,
+              `Heard about us: ${values.source || "-"}`,
               "",
               values.message,
             ].join("\n"),

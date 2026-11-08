@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { submitEnquiry } from "@/app/(site)/contact/actions";
-import { budgets, timelines, type EnquiryField, type EnquiryState } from "@/lib/enquiry";
+import { budgets, extraServices, sources, timelines, type EnquiryField, type EnquiryState } from "@/lib/enquiry";
 
 const initial: EnquiryState = { status: "idle" };
 
@@ -45,7 +45,7 @@ export function ContactForm({
       <Field label="Service" name="service" error={err("service")}>
         <select id="service" name="service" defaultValue={v.service ?? defaultService} className="field appearance-none">
           <option value="">Select a service</option>
-          {services.map((s) => (
+          {[...services, ...extraServices].map((s) => (
             <option key={s.slug} value={s.slug}>{s.name}</option>
           ))}
           <option value="other">Something else</option>
@@ -61,6 +61,12 @@ export function ContactForm({
         <select id="timeline" name="timeline" defaultValue={v.timeline ?? ""} className="field appearance-none">
           <option value="">Select a timeline</option>
           {timelines.map((t) => <option key={t}>{t}</option>)}
+        </select>
+      </Field>
+      <Field label="How did you hear about us?" name="source" optional className="md:col-span-2">
+        <select id="source" name="source" defaultValue={v.source ?? ""} className="field appearance-none">
+          <option value="">Select one</option>
+          {sources.map((x) => <option key={x}>{x}</option>)}
         </select>
       </Field>
       <Field label="Tell us about the project" name="message" error={err("message")} className="md:col-span-2">

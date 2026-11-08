@@ -25,7 +25,7 @@ export default async function ContactPage() {
             Start a <span className="text-red">project.</span>
           </>
         }
-        intro="Brands, agencies, artists and collaborators. Tell us what you're making and we'll come back to you with how we'd bring it to life."
+        intro="Brands, agencies, artists and collaborators: tell us what you're making. We'll come back with how we'd direct and produce it."
       />
       <section className="container-x grid gap-16 pb-24 md:grid-cols-12 md:pb-36">
         <Reveal className="md:col-span-8">

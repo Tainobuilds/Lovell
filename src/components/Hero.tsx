@@ -44,7 +44,7 @@ export async function Hero() {
         <p className="eyebrow mb-6 flex items-center gap-3 text-paper/80">
           <span className="h-px w-8 bg-red" /> {home.heroLabel}
         </p>
-        <h1 className="display text-[clamp(4.25rem,15.5vw,15rem)]">
+        <h1 className="display text-[clamp(3.5rem,11vw,12rem)]">
           <Rich text={home.heroHeadline} />
         </h1>
         <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">

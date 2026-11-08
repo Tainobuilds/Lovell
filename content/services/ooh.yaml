@@ -1,15 +1,14 @@
 name: OOH
 order: 1
 short: OOH
-statement: Stories built for the street.
+statement: Campaigns built for the street.
 description: >-
-  Out-of-home campaigns designed to stop people mid-stride, from large-format billboards and transit
-  takeovers to public installations and brand placements that live in the city.
+  Out-of-home campaigns that stop people mid-stride: billboard and large-format imagery, transit and
+  digital screens, public installations, and the films and stills behind them.
 capabilities:
-  - Billboard & large-format campaigns
-  - Transit & street-level placements
-  - Public installations
+  - Campaign imagery and motion
   - Digital out-of-home content
-  - Campaign photography & motion
-  - Production & site coordination
+  - Public installations
+  - Placement and proof capture
+  - Production and site coordination
 alt: ''

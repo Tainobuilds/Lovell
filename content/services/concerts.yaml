@@ -1,15 +1,14 @@
 name: Concerts
 order: 2
 short: Concerts
-statement: The energy of the room, captured.
+statement: The energy of the room, on screen.
 description: >-
-  Concert and live music production, from stage visuals and performance capture to the moments
-  behind the curtain that make a show feel like an event.
+  Concert films, performance visuals and behind-the-scenes stories for artists, labels and venues,
+  directed to feel like you were there.
 capabilities:
-  - Live music production
-  - Stage visuals & screen content
-  - Multi-camera performance capture
-  - Behind-the-scenes documentary
-  - Tour & festival content
-  - Artist & crew coordination
+  - Multi-camera concert films
+  - Music and performance films
+  - Stage visuals and screen content
+  - Tour and behind-the-scenes documentary
+  - Artist and crew coordination
 alt: ''

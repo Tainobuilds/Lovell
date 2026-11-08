@@ -20,10 +20,10 @@ export default async function WorkPage() {
         eyebrow="Work"
         title={
           <>
-            Selected <span className="text-red">frames.</span>
+            Selected <span className="text-red">work.</span>
           </>
         }
-        intro="A gallery of productions across every discipline we work in. Filter by category, then step inside any project."
+        intro="Commercials, music and performance, podcasts, events and branded stories. Filter by category, then step inside any project."
       />
       <section className="container-x pb-24 md:pb-36">
         {/* Static HTML ships the full grid; the client reads ?category= after hydration. */}

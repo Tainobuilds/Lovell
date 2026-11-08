@@ -71,8 +71,8 @@ export default async function Home() {
             <p className="mt-8 max-w-xl text-lg text-mute">
               {home.studioText}
             </p>
-            <Link href="/studio" className="btn btn-ghost mt-10">
-              About the studio <span className="arrow">→</span>
+            <Link href="/director" className="btn btn-ghost mt-10">
+              {home.studioButton} <span className="arrow">→</span>
             </Link>
           </Reveal>
           <Reveal delay={150} className="lg:col-span-6">

@@ -2,9 +2,7 @@ title: Live Concert Film
 category: concerts
 client: Client name
 year: —
-summary: >-
-  A placeholder for multi-camera performance capture, stage visuals and the
-  story of the night.
+summary: A placeholder for multi-camera performance capture, stage visuals and the story of the night.
 scope:
   - Live production
   - Multi-camera capture
@@ -15,3 +13,4 @@ gallery: []
 featured: true
 sample: true
 order: 30
+directorGroup: music

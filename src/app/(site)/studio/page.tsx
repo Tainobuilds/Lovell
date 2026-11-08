@@ -23,12 +23,12 @@ const principles = [
     body: "Concept, planning, crew, shoot, build and post. We coordinate the moving parts so the work arrives whole.",
   },
   {
-    title: "Built for every screen",
-    body: "A billboard, a stage, a feed. We plan the frame for wherever it will be seen, and for everywhere it will travel next.",
+    title: "Directed, not just filmed",
+    body: "Creative decisions come first: the frame, the movement, the sound. Good footage is the minimum; a point of view is the point.",
   },
   {
-    title: "Independent by design",
-    body: "An independent company means a direct line to the people making the work, and the freedom to make it properly.",
+    title: "Quality over appearances",
+    body: "We never sacrifice the quality of the work to look busy or bigger than we are.",
   },
 ];
 
@@ -47,11 +47,11 @@ export default async function StudioPage() {
         eyebrow="Studio"
         title={
           <>
-            We make <br />
-            <span className="text-red">the frame</span> <span className="editorial">matter.</span>
+            A production house <br />
+            <span className="editorial text-red">built for</span> culture.
           </>
         }
-        intro="Lovell Media is an independent production company working across entertainment, culture, advertising and live experiences. We bring ideas to life through creative production and visual storytelling."
+        intro="Lovell Media is an independent film and production company founded by director Latoya Lovell. We make commercial campaigns, live music films, podcasts, events and branded content, and we develop original stories of our own."
       />
 
       <Reveal className="container-x">
