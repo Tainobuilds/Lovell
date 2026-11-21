@@ -42,3 +42,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .worktrees/
+
+# Client review documents (private; shared directly, not via the public repo)
+/*.pdf
