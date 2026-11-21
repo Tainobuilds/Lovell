@@ -51,7 +51,7 @@ export default async function StudioPage() {
             <span className="editorial text-red">built for</span> culture.
           </>
         }
-        intro="Lovell Media is an independent film and production company founded by director Latoya Lovell. We make commercial campaigns, live music films, podcasts, events and branded content, and we develop original stories of our own."
+        intro="Lovell Media is an independent film and production company. We make commercial campaigns, live music films, podcasts, events, branded content, documentaries and travel films, and we develop original stories of our own."
       />
 
       <Reveal className="container-x">
@@ -105,7 +105,7 @@ export default async function StudioPage() {
             </p>
             <h2 id="cap-h" className="display text-[clamp(2.5rem,6vw,5rem)]">
               One house. <br />
-              Five disciplines.
+              Every discipline.
             </h2>
             <p className="mt-6 max-w-md text-mute">
               Founded by{" "}

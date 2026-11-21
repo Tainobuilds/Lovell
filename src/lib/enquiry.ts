@@ -10,10 +10,10 @@ export type EnquiryField = "name" | "email" | "company" | "service" | "budget" |
 
 // TODO: confirm bands with Lovell Media.
 export const budgets = ["Under £5k", "£5k – £10k", "£10k – £25k", "£25k – £50k", "£50k+", "Not sure yet"];
-/** "How did you hear about us?" Tracks enquiries that come for Latoya by name. */
+/** "How did you hear about us?" Shows which channels bring enquiries. */
 export const sources = [
   "Recommendation",
-  "I know Latoya Lovell's work",
+  "I know Lovell Media's work",
   "Instagram",
   "LinkedIn",
   "TikTok",
@@ -23,7 +23,7 @@ export const sources = [
   "Other",
 ];
 /** Extra service options on the form that aren't service pages. */
-export const extraServices = [{ slug: "directing", name: "Directing (Latoya Lovell)" }];
+export const extraServices = [{ slug: "directing", name: "Directing" }];
 export const timelines = ["ASAP", "Within 1 month", "1 – 3 months", "3 – 6 months", "Flexible"];
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;

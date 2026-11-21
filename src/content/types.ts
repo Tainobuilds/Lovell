@@ -30,6 +30,4 @@ export type Project = {
   gallery: string[];
   featured: boolean;
   sample: boolean;
-  /** Group on the Director page, or "none". */
-  directorGroup: "none" | "commercials" | "music" | "narrative";
 };

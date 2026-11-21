@@ -68,7 +68,7 @@ export function ServiceIndex({ services }: { services: Service[] }) {
                 className="h-full w-full"
               />
               <div className="absolute bottom-6 left-6 right-6">
-                <p className="eyebrow text-red-bright">{s.index} / 05</p>
+                <p className="eyebrow text-red-bright">{s.index} / {String(services.length).padStart(2, "0")}</p>
                 <p className="mt-2 max-w-xs text-sm text-paper/80">{s.description}</p>
               </div>
             </div>

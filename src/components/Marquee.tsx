@@ -1,4 +1,4 @@
-/** Slow typographic ticker of the five disciplines. */
+/** Slow typographic ticker of the service names. */
 export function Marquee({ items }: { items: string[] }) {
   const row = [...items, ...items];
   return (

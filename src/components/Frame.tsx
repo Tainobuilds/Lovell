@@ -153,6 +153,27 @@ function art(category?: ServiceSlug) {
           </div>
         </>
       );
+    case "documentaries":
+      // Interview set-up: a lit subject in a dark room, film-strip edges.
+      return (
+        <>
+          <div className="absolute inset-0 bg-[#070707]" />
+          <div className="absolute left-[58%] top-[18%] h-[70%] w-[30%] rounded-t-full bg-[radial-gradient(60%_50%_at_40%_30%,rgba(255,255,255,0.28),rgba(255,255,255,0.05)_60%,transparent_75%)]" />
+          <div className="absolute -left-[10%] top-[10%] h-[80%] w-[60%] rounded-full bg-red/25 blur-[90px]" />
+          <div className="absolute inset-y-0 left-0 w-[5%] bg-[repeating-linear-gradient(180deg,#000_0_10%,#1c1c1c_10%_16%)]" />
+          <div className="absolute inset-y-0 right-0 w-[5%] bg-[repeating-linear-gradient(180deg,#000_0_10%,#1c1c1c_10%_16%)]" />
+        </>
+      );
+    case "travel":
+      // Horizon at dusk with a red sun.
+      return (
+        <>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,#050505_0%,#1a0606_55%,#0a0a0a_56%,#050505_100%)]" />
+          <div className="absolute left-1/2 top-[38%] h-[30%] w-[22%] -translate-x-1/2 rounded-full bg-red shadow-[0_0_120px_40px_rgba(225,10,10,0.35)]" />
+          <div className="absolute inset-x-0 top-[55%] h-px bg-paper/30" />
+          <div className="absolute inset-x-0 top-[56%] bottom-0 bg-[repeating-linear-gradient(180deg,transparent_0_6%,rgba(255,255,255,0.05)_6%_7%)]" />
+        </>
+      );
     default:
       // Generic cinematic frame: red light leak.
       return (

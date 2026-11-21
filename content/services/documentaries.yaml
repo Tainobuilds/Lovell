@@ -1,0 +1,15 @@
+name: Documentaries
+order: 6
+short: Documentaries
+statement: Real lives, told honestly.
+description: >-
+  Documentary films and series, from branded documentaries to independent stories: research,
+  interviews and observational filming shaped into films that stay with people.
+capabilities:
+  - Branded documentaries
+  - Short documentaries and series
+  - Interview-led storytelling
+  - Observational filming
+  - Story development and research
+  - Edit and post-production
+alt: ''

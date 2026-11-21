@@ -9,7 +9,7 @@ import { getServices } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "OOH, concerts, podcasts, events and branded content. Five production disciplines from Lovell Media.",
+    "OOH, concerts, podcasts, events, branded content, documentaries and travel. Film and production services from Lovell Media.",
   alternates: { canonical: "/services" },
 };
 
@@ -21,7 +21,7 @@ export default async function ServicesPage() {
         eyebrow="Services"
         title={
           <>
-            Five disciplines.
+            Every format.
             <br />
             <span className="text-red">One eye.</span>
           </>
@@ -45,7 +45,7 @@ export default async function ServicesPage() {
                 />
               </div>
               <div className="md:col-span-5">
-                <p className="eyebrow text-red-bright">{s.index} / 05</p>
+                <p className="eyebrow text-red-bright">{s.index} / {String(services.length).padStart(2, "0")}</p>
                 <h2 className="display mt-4 text-[clamp(3rem,7vw,6rem)] transition-colors group-hover:text-red">{s.name}</h2>
                 <p className="editorial mt-3 text-2xl text-paper/90">{s.statement}</p>
                 <p className="mt-5 text-mute">{s.description}</p>

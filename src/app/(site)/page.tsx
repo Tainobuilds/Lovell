@@ -71,7 +71,7 @@ export default async function Home() {
             <p className="mt-8 max-w-xl text-lg text-mute">
               {home.studioText}
             </p>
-            <Link href="/director" className="btn btn-ghost mt-10">
+            <Link href="/contact" className="btn btn-ghost mt-10">
               {home.studioButton} <span className="arrow">→</span>
             </Link>
           </Reveal>
