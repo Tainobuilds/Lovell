@@ -4,7 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { Frame } from "@/components/Frame";
 import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
-import { getServices, getSettings } from "@/lib/content";
+import { getServices } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -40,7 +40,7 @@ const process = [
 ];
 
 export default async function StudioPage() {
-  const [services, settings] = await Promise.all([getServices(), getSettings()]);
+  const services = await getServices();
   return (
     <>
       <PageHero
@@ -108,12 +108,8 @@ export default async function StudioPage() {
               Every discipline.
             </h2>
             <p className="mt-6 max-w-md text-mute">
-              Founded by{" "}
-              <a href={settings.founder.url} target="_blank" rel="noopener noreferrer" className="link-u text-paper">
-                {settings.founder.name}
-              </a>
-              , Lovell Media is built as a company with room to grow. Its team, partners and
-              crew come together around each production.
+              Lovell Media is built as a company with room to grow. Its team, partners and crew
+              come together around each production.
             </p>
           </Reveal>
           <div className="md:col-span-7">
