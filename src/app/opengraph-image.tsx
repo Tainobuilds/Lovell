@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Lovell Media: Every frame has a story.";
+export const alt = "Lovell Media: creative production, digital media, global storytelling.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -21,14 +21,13 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 34, fontWeight: 800, letterSpacing: 2 }}>
-          <div style={{ width: 26, height: 26, background: "#e10a0a" }} />
+          <div style={{ width: 26, height: 26, background: "#d71920" }} />
           LOVELL <span style={{ fontSize: 20, opacity: 0.6, letterSpacing: 8 }}>MEDIA</span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", fontSize: 120, fontWeight: 900, lineHeight: 0.92, letterSpacing: -3 }}>
-          <span>EVERY FRAME</span>
-          <span style={{ display: "flex" }}>
-            HAS A&nbsp;<span style={{ color: "#e10a0a" }}>STORY.</span>
-          </span>
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 92, fontWeight: 900, lineHeight: 0.95, letterSpacing: -2 }}>
+          <span>CREATIVE PRODUCTION.</span>
+          <span>DIGITAL MEDIA.</span>
+          <span style={{ color: "#d71920" }}>GLOBAL STORYTELLING.</span>
         </div>
       </div>
     ),

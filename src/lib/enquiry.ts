@@ -6,7 +6,7 @@ export type EnquiryState = {
   values?: Partial<Record<EnquiryField, string>>;
 };
 
-export type EnquiryField = "name" | "email" | "company" | "service" | "budget" | "timeline" | "source" | "message";
+export type EnquiryField = "name" | "email" | "company" | "service" | "location" | "budget" | "timeline" | "source" | "message";
 
 // TODO: confirm bands with Lovell Media.
 export const budgets = ["Under £5k", "£5k – £10k", "£10k – £25k", "£25k – £50k", "£50k+", "Not sure yet"];
@@ -22,9 +22,11 @@ export const sources = [
   "Event or screening",
   "Other",
 ];
-/** Extra service options on the form that aren't service pages. */
-export const extraServices = [{ slug: "directing", name: "Directing" }];
-export const timelines = ["ASAP", "Within 1 month", "1 – 3 months", "3 – 6 months", "Flexible"];
+/** Enquiry categories on the form that aren't service pages. */
+export const extraServices = [
+  { slug: "global", name: "Global / Multilocation Production" },
+  { slug: "general", name: "General Enquiry" },
+];
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -37,6 +39,7 @@ export function validateEnquiry(form: FormData, serviceSlugs: string[]) {
     company: get("company"),
     service: get("service"),
     budget: get("budget"),
+    location: get("location"),
     timeline: get("timeline"),
     source: get("source"),
     message: get("message"),
@@ -48,7 +51,7 @@ export function validateEnquiry(form: FormData, serviceSlugs: string[]) {
     errors.service = "Please choose a service.";
   if (values.message.length < 10) errors.message = "A sentence or two about the project helps us respond.";
   if (values.message.length > 5000) errors.message = "Please keep it under 5,000 characters.";
-  for (const k of ["name", "email", "company", "budget", "timeline", "source"] as const) {
+  for (const k of ["name", "email", "company", "location", "budget", "timeline", "source"] as const) {
     if (values[k].length > 200) errors[k] = "That's a bit long.";
   }
   return { values, errors, ok: Object.keys(errors).length === 0 };

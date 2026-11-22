@@ -8,10 +8,10 @@ import { Reveal } from "@/components/Reveal";
 import { CtaBand } from "@/components/CtaBand";
 import { Frame } from "@/components/Frame";
 import { Rich } from "@/components/Rich";
-import { getFeaturedProjects, getHomepage, getServices } from "@/lib/content";
+import { getFeaturedProjects, getGlobal, getHomepage, getServices } from "@/lib/content";
 
 export default async function Home() {
-  const [services, featured, home] = await Promise.all([getServices(), getFeaturedProjects(), getHomepage()]);
+  const [services, featured, home, global] = await Promise.all([getServices(), getFeaturedProjects(), getHomepage(), getGlobal()]);
   const [lead, ...rest] = featured;
   return (
     <>
@@ -58,7 +58,37 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* E. Studio */}
+      {/* Global production */}
+      <section className="relative overflow-hidden border-t border-line py-24 md:py-36" aria-labelledby="global-h">
+        <Frame src={global.image} category="global" className="absolute inset-0 opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
+        <div className="container-x relative grid gap-12 lg:grid-cols-12">
+          <Reveal className="lg:col-span-6">
+            <p className="eyebrow mb-6 flex items-center gap-3 text-paper/80">
+              <span className="h-px w-8 bg-red" /> {global.label}
+            </p>
+            <h2 id="global-h" className="display text-[clamp(2.75rem,7vw,6.5rem)]">
+              <Rich text={global.headline} />
+            </h2>
+            <p className="mt-8 max-w-xl text-lg text-paper/85">{global.intro}</p>
+            <Link href="/global-production" className="btn btn-red mt-10">
+              Global production <span className="arrow">→</span>
+            </Link>
+          </Reveal>
+          <Reveal delay={120} className="lg:col-span-5 lg:col-start-8 lg:self-end">
+            <ul>
+              {global.capabilities.slice(0, 5).map((c, i) => (
+                <li key={c.title} className="flex items-baseline gap-4 border-t border-paper/20 py-4 last:border-b">
+                  <span className="eyebrow text-red-bright">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-lg">{c.title}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Approach */}
       <section className="border-t border-line bg-ink-2 py-24 md:py-36" aria-labelledby="studio-h">
         <div className="container-x grid items-center gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-6">

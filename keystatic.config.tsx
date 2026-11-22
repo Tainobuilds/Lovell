@@ -28,7 +28,7 @@ export default config({
     brand: { name: "Lovell Media" },
     navigation: {
       Content: ["projects", "services"],
-      Pages: ["homepage"],
+      Pages: ["homepage", "about", "global"],
       Settings: ["settings"],
     },
   },
@@ -45,6 +45,8 @@ export default config({
         category: fields.relationship({ label: "Category", collection: "services", validation: { isRequired: true } }),
         client: fields.text({ label: "Client", description: "Only name clients you have permission to show." }),
         year: fields.text({ label: "Year" }),
+        location: fields.text({ label: "Location", description: "City and country, or several markets." }),
+        industry: fields.text({ label: "Industry", description: "e.g. Retail, Music, Technology. Optional." }),
         summary: fields.text({ label: "Summary", description: "1–2 sentences. Let the visuals do the talking.", multiline: true }),
         scope: fields.array(fields.text({ label: "Item" }), {
           label: "Scope (what Lovell Media did)",
@@ -54,6 +56,18 @@ export default config({
           fields.object({ role: fields.text({ label: "Role" }), name: fields.text({ label: "Name" }) }),
           { label: "Credits", itemLabel: (p) => `${p.fields.role.value}: ${p.fields.name.value}` },
         ),
+        objectives: fields.text({ label: "Case study: objectives", description: "What the campaign or client set out to do.", multiline: true }),
+        deliverables: fields.array(fields.text({ label: "Deliverable" }), {
+          label: "Case study: deliverables",
+          description: "e.g. 40 edited photographs, 60s recap film, 3 social cutdowns.",
+          itemLabel: (p) => p.value,
+        }),
+        highlights: fields.text({ label: "Case study: highlights", multiline: true }),
+        results: fields.text({
+          label: "Case study: results",
+          description: "Only results that are verified and approved by the client.",
+          multiline: true,
+        }),
         cover: image("Cover image", "projects", "Landscape, at least 2400px wide."),
         video: video("Video loop (MP4)", "projects", "Optional short muted loop. Under 8MB."),
         embed: fields.url({ label: "Film link (embed URL)", description: "Optional Vimeo/YouTube player URL for the full film." }),
@@ -118,6 +132,50 @@ export default config({
         ctaText: fields.text({ label: "Closing banner: text", multiline: true }),
         ctaButton: fields.text({ label: "Closing banner: button" }),
         footerLine: fields.text({ label: "Footer sign-off", description: HEADLINE_HINT, multiline: true }),
+      },
+    }),
+
+    about: singleton({
+      label: "About Us",
+      path: "content/about",
+      format: { data: "yaml" },
+      schema: {
+        headline: fields.text({ label: "Headline", description: HEADLINE_HINT, multiline: true }),
+        intro: fields.text({ label: "Intro", multiline: true }),
+        image: image("Team or studio photo", "about", "Landscape, at least 2400px wide."),
+        story: fields.text({ label: "Our story", multiline: true }),
+        international: fields.text({ label: "International development", multiline: true }),
+        principles: fields.array(
+          fields.object({ title: fields.text({ label: "Title" }), body: fields.text({ label: "Text", multiline: true }) }),
+          { label: "Creative philosophy", itemLabel: (p) => p.fields.title.value },
+        ),
+        leadership: fields.array(
+          fields.object({
+            name: fields.text({ label: "Name" }),
+            role: fields.text({ label: "Role" }),
+            bio: fields.text({ label: "Short bio", multiline: true }),
+            photo: image("Photo", "about"),
+          }),
+          { label: "Leadership", description: "Hidden on the site until at least one person is added.", itemLabel: (p) => p.fields.name.value || "Person" },
+        ),
+      },
+    }),
+
+    global: singleton({
+      label: "Global Production",
+      path: "content/global",
+      format: { data: "yaml" },
+      schema: {
+        label: fields.text({ label: "Small label" }),
+        headline: fields.text({ label: "Headline", description: HEADLINE_HINT, multiline: true }),
+        intro: fields.text({ label: "Intro", multiline: true }),
+        image: image("Hero image", "global", "Landscape, at least 2400px wide."),
+        capabilities: fields.array(
+          fields.object({ title: fields.text({ label: "Title" }), body: fields.text({ label: "Text", multiline: true }) }),
+          { label: "Capabilities", itemLabel: (p) => p.fields.title.value },
+        ),
+        networkHeadline: fields.text({ label: "Crew network: headline", description: HEADLINE_HINT, multiline: true }),
+        networkText: fields.text({ label: "Crew network: text", multiline: true }),
       },
     }),
 

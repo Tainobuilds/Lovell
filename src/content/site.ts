@@ -6,14 +6,15 @@
 export const site = {
   name: "Lovell Media",
   description:
-    "Lovell Media is an independent production company bringing ideas to life across out-of-home, concerts, podcasts, events and branded content.",
+    "Lovell Media is a global creative production and digital media agency bringing ideas to life through visual storytelling, branded content, social media and digital experiences.",
   // TODO: set NEXT_PUBLIC_SITE_URL to the production domain once confirmed.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lovellmedia.com",
 } as const;
 
 export const nav = [
-  { href: "/work", label: "Work" },
+  { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/studio", label: "Studio" },
+  { href: "/work", label: "Our Work" },
+  { href: "/global-production", label: "Global Production" },
   { href: "/contact", label: "Contact" },
 ] as const;

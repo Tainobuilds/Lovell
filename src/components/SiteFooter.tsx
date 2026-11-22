@@ -17,6 +17,7 @@ export async function SiteFooter() {
           <p className="display mt-8 text-4xl md:text-5xl">
             <Rich text={home.footerLine} />
           </p>
+          <p className="eyebrow mt-5 text-faint">Creative Production · Digital Media · Global Storytelling</p>
           <a href={`mailto:${settings.email}`} className="link-u mt-8 inline-block text-lg text-mute hover:text-paper">
             {settings.email}
           </a>
@@ -62,7 +63,7 @@ export async function SiteFooter() {
           © {new Date().getFullYear()} {site.name}. All rights reserved.
           <Link href="/privacy" className="link-u ml-4 hover:text-paper">Privacy</Link>
         </p>
-        <p>Independent production company{settings.location ? ` · ${settings.location}` : ""}</p>
+        <p>Global creative production &amp; digital media{settings.location ? ` · ${settings.location}` : ""}</p>
       </div>
     </footer>
   );

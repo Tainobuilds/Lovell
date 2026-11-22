@@ -9,7 +9,7 @@ import { getServices } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "OOH, concerts, podcasts, events, branded content, documentaries and travel. Film and production services from Lovell Media.",
+    "Media production, OOH & experiential, branded content, social media management and web design from Lovell Media.",
   alternates: { canonical: "/services" },
 };
 
@@ -21,12 +21,12 @@ export default async function ServicesPage() {
         eyebrow="Services"
         title={
           <>
-            Every format.
+            Five divisions.
             <br />
-            <span className="text-red">One eye.</span>
+            <span className="text-red">One team.</span>
           </>
         }
-        intro="From the street to the stage to the screen, we produce across the formats where culture and brands meet."
+        intro="Take one service or the whole project. From concept through production, post-production and digital execution, Lovell Media is one partner for creative and digital work."
       />
       <section className="container-x space-y-24 pb-24 md:space-y-36 md:pb-36">
         {services.map((s, i) => (

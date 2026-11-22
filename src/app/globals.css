@@ -10,8 +10,8 @@
   --color-ink-2: #121212;      /* raised surface */
   --color-ink-3: #1c1c1c;      /* cards / placeholders */
   --color-paper: #ffffff;      /* type + contrast */
-  --color-red: #e10a0a;        /* primary accent */
-  --color-red-deep: #a60707;   /* pressed / hover on red */
+  --color-red: #d71920;        /* primary accent (brand red) */
+  --color-red-deep: #a8131a;   /* pressed / hover on red */
   --color-red-bright: #ff2b2b; /* SMALL red text on black only (AA 5.3:1) */
   --color-mute: rgb(255 255 255 / 0.62);
   --color-faint: rgb(255 255 255 / 0.5);

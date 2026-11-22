@@ -17,7 +17,7 @@ const instrument = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Every Frame Has a Story`,
+    default: `${site.name} | Creative Production & Digital Media Agency`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} | Every Frame Has a Story`,
+    title: `${site.name} | Creative Production & Digital Media Agency`,
     description: site.description,
     url: "/",
   },

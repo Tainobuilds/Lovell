@@ -15,13 +15,14 @@ npm run build && npm start
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Hero showreel, services index, featured work, studio intro, CTA |
-| `/work` | Portfolio gallery with category filter (`?category=ooh`) |
-| `/work/[slug]` | Project detail: film/cover, meta, scope, gallery, next project |
-| `/services` | Overview of the five disciplines |
-| `/services/[slug]` | OOH, Concerts, Podcasts, Events, Branded Content |
-| `/studio` | About, approach, process, capabilities |
-| `/contact` | Enquiry form (pre-selects service via `?service=`) |
+| `/` | Hero, five services, featured work, global production, approach, CTA |
+| `/about` | About Us: story, international development, creative philosophy, leadership (hidden until added) |
+| `/services` | The five divisions |
+| `/services/[slug]` | Media Production, OOH & Experiential, Branded Content & Creative, Social Media Management, Web Design & Development |
+| `/work` | Our Work: portfolio filtered by service (`?category=`) |
+| `/work/[slug]` | Case study: location, objectives, services, deliverables, highlights, verified results, gallery |
+| `/global-production` | International capabilities and the Global Crew Network |
+| `/contact` | Enquiry form: service, location, dates, budget (pre-selects via `?service=`) |
 | `/privacy` | Privacy policy (draft; review before launch) |
 
 Also: `sitemap.xml`, `robots.txt`, generated Open Graph image, JSON-LD organization data, 404.

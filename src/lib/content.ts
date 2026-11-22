@@ -55,6 +55,12 @@ export const getProjects = cache(async (): Promise<Project[]> => {
         categoryName: names.get(entry.category ?? "") ?? "",
         client: entry.client,
         year: entry.year,
+        location: entry.location,
+        industry: entry.industry,
+        objectives: entry.objectives,
+        deliverables: [...entry.deliverables],
+        highlights: entry.highlights,
+        results: entry.results,
         summary: entry.summary,
         scope: [...entry.scope],
         credits: entry.credits.map((c) => ({ role: c.role, name: c.name })),
@@ -96,3 +102,12 @@ export const getSettings = cache(async () => {
 
 export const getHomepage = cache(async () => reader.singletons.homepage.readOrThrow());
 
+export const getAbout = cache(async () => {
+  const a = await reader.singletons.about.readOrThrow();
+  return { ...a, image: opt(a.image), leadership: a.leadership.map((l) => ({ ...l, photo: opt(l.photo) })) };
+});
+
+export const getGlobal = cache(async () => {
+  const g = await reader.singletons.global.readOrThrow();
+  return { ...g, image: opt(g.image) };
+});

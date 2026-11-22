@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { submitEnquiry } from "@/app/(site)/contact/actions";
-import { budgets, extraServices, sources, timelines, type EnquiryField, type EnquiryState } from "@/lib/enquiry";
+import { budgets, extraServices, sources, type EnquiryField, type EnquiryState } from "@/lib/enquiry";
 
 const initial: EnquiryState = { status: "idle" };
 
@@ -42,14 +42,19 @@ export function ContactForm({
       <Field label="Company / Brand" name="company" optional error={err("company")}>
         <input id="company" name="company" autoComplete="organization" defaultValue={v.company} className="field" />
       </Field>
-      <Field label="Service" name="service" error={err("service")}>
+      <Field label="What do you need?" name="service" error={err("service")}>
         <select id="service" name="service" defaultValue={v.service ?? defaultService} className="field appearance-none">
           <option value="">Select a service</option>
           {[...services, ...extraServices].map((s) => (
             <option key={s.slug} value={s.slug}>{s.name}</option>
           ))}
-          <option value="other">Something else</option>
         </select>
+      </Field>
+      <Field label="Project location" name="location" optional error={err("location")}>
+        <input id="location" name="location" placeholder="City, country, or several markets" defaultValue={v.location} className="field" />
+      </Field>
+      <Field label="Intended dates" name="timeline" optional error={err("timeline")}>
+        <input id="timeline" name="timeline" placeholder="e.g. March 2027, or flexible" defaultValue={v.timeline} className="field" />
       </Field>
       <Field label="Budget" name="budget" optional>
         <select id="budget" name="budget" defaultValue={v.budget ?? ""} className="field appearance-none">
@@ -57,13 +62,7 @@ export function ContactForm({
           {budgets.map((b) => <option key={b}>{b}</option>)}
         </select>
       </Field>
-      <Field label="Timeline" name="timeline" optional>
-        <select id="timeline" name="timeline" defaultValue={v.timeline ?? ""} className="field appearance-none">
-          <option value="">Select a timeline</option>
-          {timelines.map((t) => <option key={t}>{t}</option>)}
-        </select>
-      </Field>
-      <Field label="How did you hear about us?" name="source" optional className="md:col-span-2">
+      <Field label="How did you hear about us?" name="source" optional>
         <select id="source" name="source" defaultValue={v.source ?? ""} className="field appearance-none">
           <option value="">Select one</option>
           {sources.map((x) => <option key={x}>{x}</option>)}

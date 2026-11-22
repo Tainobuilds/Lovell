@@ -85,7 +85,9 @@ export default async function ProjectPage({ params }: Props) {
           <dl className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-1">
             <Meta label="Client" value={project.client} />
             <Meta label="Year" value={project.year} />
-            <Meta label="Category" value={<Link href={`/services/${service.slug}`} className="link-u">{service.name}</Link>} />
+            {project.location && <Meta label="Location" value={project.location} />}
+            {project.industry && <Meta label="Industry" value={project.industry} />}
+            <Meta label="Service" value={<Link href={`/services/${service.slug}`} className="link-u">{service.name}</Link>} />
             {project.credits.map((c) => (
               <Meta key={c.role} label={c.role} value={c.name} />
             ))}
@@ -93,12 +95,25 @@ export default async function ProjectPage({ params }: Props) {
         </Reveal>
         <Reveal delay={120} className="md:col-span-7 md:col-start-6">
           <p className="text-2xl leading-snug md:text-4xl md:leading-tight">{project.summary}</p>
-          <h2 className="eyebrow mb-4 mt-12 text-faint">Scope</h2>
+          {project.objectives && <CaseBlock title="Objectives">{project.objectives}</CaseBlock>}
+          <h2 className="eyebrow mb-4 mt-12 text-faint">Services provided</h2>
           <ul className="flex flex-wrap gap-2">
             {project.scope.map((s) => (
               <li key={s} className="border border-line px-3 py-2 text-sm text-mute">{s}</li>
             ))}
           </ul>
+          {project.deliverables.length > 0 && (
+            <>
+              <h2 className="eyebrow mb-4 mt-12 text-faint">Deliverables</h2>
+              <ul className="space-y-2 text-lg">
+                {project.deliverables.map((d) => (
+                  <li key={d} className="flex gap-3"><span className="mt-3 h-1.5 w-1.5 shrink-0 bg-red" />{d}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          {project.highlights && <CaseBlock title="Highlights">{project.highlights}</CaseBlock>}
+          {project.results && <CaseBlock title="Results">{project.results}</CaseBlock>}
         </Reveal>
       </section>
 
@@ -130,5 +145,14 @@ function Meta({ label, value }: { label: string; value: React.ReactNode }) {
       <dt className="eyebrow text-faint">{label}</dt>
       <dd className="mt-2 text-lg">{value}</dd>
     </div>
+  );
+}
+
+function CaseBlock({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <>
+      <h2 className="eyebrow mb-4 mt-12 text-faint">{title}</h2>
+      <p className="whitespace-pre-line text-lg text-paper/85">{children}</p>
+    </>
   );
 }

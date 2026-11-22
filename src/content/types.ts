@@ -21,6 +21,12 @@ export type Project = {
   categoryName: string;
   client: string;
   year: string;
+  location: string;
+  industry: string;
+  objectives: string;
+  deliverables: string[];
+  highlights: string;
+  results: string;
   summary: string;
   scope: string[];
   credits: { role: string; name: string }[];
